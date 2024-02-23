@@ -1,0 +1,5 @@
+- Lógica de login do index;
+- CRUD dos filmes;
+- Comentar;
+- Excluir comentário;
+- Nivel de acesso no DB;
