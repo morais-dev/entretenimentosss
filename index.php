@@ -1,11 +1,10 @@
 <?php 
 session_start();
 
-
-if(empty($_SESSION['nome'] && !empty($_SESSION['email']))){
+//se a sessão for vazia, irá direcionar pro login
+if(empty($_SESSION['nome']) && empty($_SESSION['email'])){
   header("location:/view/login.html");
 }else{
-  // session_destroy();
     $nome = $_SESSION['nome'];
     $email = $_SESSION['email'];
 ?>
@@ -16,8 +15,14 @@ if(empty($_SESSION['nome'] && !empty($_SESSION['email']))){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Entretenimentosss</title>
 </head>
+<header>
+  <div>Olá <?= $nome?></div>
+</header>
 <body>
-  <p>hey</p>
+  <div></div>
 </body>
+<footer>
+
+</footer>
 </html>
  <?php }?>
