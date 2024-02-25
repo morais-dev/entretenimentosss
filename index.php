@@ -19,7 +19,7 @@ if(empty($_SESSION['nome']) && empty($_SESSION['email'])){
   <div>Olá <?= $nome?></div>
 </header>
 <body>
-  <div></div>
+  <div><a href="./controler/cadastros.php">Área de cadastro</a></div>
 </body>
 <footer>
 
