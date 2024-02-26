@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+// session_unset();
 //se a sessão for vazia, irá direcionar pro login
 if(empty($_SESSION['nome']) && empty($_SESSION['email'])){
   header("location:/view/login.html");
@@ -20,6 +20,7 @@ if(empty($_SESSION['nome']) && empty($_SESSION['email'])){
 </header>
 <body>
   <div><a href="./controler/cadastros.php">Área de cadastro</a></div>
+  <div> <?php include_once './view/gerenciamento.php' ?></div>
 </body>
 <footer>
 

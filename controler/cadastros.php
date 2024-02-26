@@ -34,7 +34,7 @@ $SQL_select = "SELECT
 // ;
 $select_colunas = $conn->prepare($SQL_select);
 $select_colunas->execute();
-$result_select = $select_colunas->fetch(PDO::FETCH_NUM);
+$result_select = $select_colunas->fetch(PDO::FETCH_ASSOC);
 $colunas = array_keys($result_select);
 
 //Área do update
@@ -43,9 +43,8 @@ $sql_update = "UPDATE listagem SET
 ";
 
 //Área do insert
+print_r($colunas);
 
-
-// echo $colunas_select[0];
 
 echo "<pre>";
 print_r($result_select);
@@ -65,11 +64,10 @@ echo "</pre>";
   <div>
     <form action="" method="get">
       <?php
-      // $n = array_count_values($colunas);
-      // for($i = 0; $colunas[$i] < $n ;$i++){
-      //   echo "<label for='{$colunas[$i]}' >{$colunas[$i]}:</label>
-      //   <input type='text' name='{$colunas[$i]}'><br>";
-      // }
+      $n = sizeof($colunas);
+      for($i = 1; $i < $n ;$i++){
+        echo "<label for='{$colunas[$i]}' >{$colunas[$i]}:</label>
+        <input type='text' name='{$colunas[$i]}'><br>";}
       ?>
       <input type="submit" value="Enviar">
     </form>
