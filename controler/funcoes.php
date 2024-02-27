@@ -103,17 +103,17 @@ function delete_SQL($conexao,$tabela,$id){
   }
 }
 
-function update ($conexao,$tabela,$dados,$id){
+function update_SQL($conexao,$tabela,$dados,$id){
 
-  $colunas = array_keys($dados); //Colocar os valores das colunas em um array
+  $colunas = array_keys($dados); //Colocar as colunas em um array
   $value =  array_map(function(){return "?";},$dados); //Fazer leitura do array e fazer um callback para cada um devolvendo um novo array
 
   $colunas_txt = implode("`, `", $colunas); //Transformar o array colunas em um txt
   $value_txt = implode(" , ", $value); //Transformar o array value em um txt
 
-  $query = ["UPDATE ($tabela) SET (`$colunas_txt`) = ($value_txt) WHERE id = $id"];
-  if($conexao == 'query'){
-    return $query;
+  $query = "UPDATE $tabela SET (`$colunas_txt`) = ($value_txt) WHERE id = $id";
+  if($conexao == 'echo'){
+    echo $query;
   }else{
 
   $sql = $conexao->prepare($query);
